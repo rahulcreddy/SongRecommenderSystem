@@ -13,7 +13,7 @@ app = Flask(__name__)
 #model = pickle.load(open('model_v1.0.pkl', 'rb'))  # loading the model
 
 # define the relative path to your data file
-data_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'track_features.csv'))
+data_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'data', 'track_features.csv'))
 
 df = pd.read_csv(data_file_path)
 
