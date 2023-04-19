@@ -3,15 +3,13 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import pandas as pd
 import os
 
-# Get the current working directory
-cwd = os.getcwd()
-# create a relative path to the data file
-data_file = os.path.join(cwd, 'client_cred', 'creds.txt')
+cid = os.environ.get('CLIENT')
+secret = os.environ.get('CLIENT_SECRET')
 
 # open the text file
-with open(data_file, 'r') as f:
-    cid = f.readline().strip()
-    secret = f.readline().strip()
+#with open(data_file, 'r') as f:
+#    cid = f.readline().strip()
+#    secret = f.readline().strip()
 
 #Authentication - without user
 client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
