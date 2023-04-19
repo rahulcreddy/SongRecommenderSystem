@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Music Recommendation System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+      * {
+        font-family: Roboto, sans-serif;
+        padding: 0;
+        margin: 0;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+
+      .flexbox {
+        background-color: #F1F2F3;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .search {
+        margin: 20px;
+      }
+
+      .search > h3 {
+        font-weight: normal;
+      }
+
+      .search > h1,
+      .search > h3 {
+        color: black;
+        margin-bottom: 15px;
+        text-shadow: 0 1px #F1F2F3;
+      }
+
+      .search > div {
+        display: inline-block;
+        position: absolute;
+        filter: drop-shadow(0 1px #F1F2F3);
+        top: 500px;
+        left:600px;
+      }
+
+      .search > div:after {
+        content: "";
+        background: black;
+        width: 4px;
+        height: 30px;
+        position: absolute;
+        top: 38px;
+        right: -2px;
+        transform: rotate(135deg);
+      }
+
+      .search > div > input {
+        color: black;
+        font-size: 16px;
+        font-family: Comic Sans MS;
+        background: transparent;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        border: solid 3px black;
+        outline: none;
+        border-radius: 35px;
+        transition: width 0.5s;
+      }
+
+      .search > div > input::placeholder {
+        color: black;
+        opacity: 0;
+        transition: opacity 150ms ease-out;
+      }
+
+      .search > div > input:focus::placeholder {
+        opacity: 1;
+      }
+
+      .search > div > input:focus,
+      .search > div > input:not(:placeholder-shown) {
+        width: 250px;
+      }
+
+    </style>
+  </head>
+
+<body>
+  <!--  
+  <div class="container mt-4">
+    <h1 class="mb-4">Search for a Song</h1>
+    <form action="{{ url_for('recommend') }}" method="POST">
+      <div class="mb-3">
+        <label for="track_id" class="form-label">Enter track name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="track_id"
+          name="track_id"
+          placeholder="Shape of You"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  -->
+    <div class="flexbox">
+      <form action="{{ url_for('recommend') }}" method="POST" class = 'form_submit'>
+      <div class="search">
+        <h1>Song Recommendation System</h1>
+        <h3>Get recommendations for your song using the search icon below</h3>
+        <div class = 'input_div'>
+            <input type="text" placeholder="Enter the song name . . ." id="track_id" name="track_id" required>
+        </div>
+      </div>
+    </form>
+
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+      integrity="sha384-DZl9Sn6viTF2Ia91cFR8F1vyxOIGwllwPVYcgYsqVNVlrswHd9xCkCtuQ6oi5u5D"
+      crossorigin="anonymous">
+    </script>
+</body>
+</html>
