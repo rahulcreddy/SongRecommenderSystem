@@ -40,7 +40,7 @@ def recommend():
 
     track_id = request.form['track_id']
     # get the index of the track
-    idx = df[df['track_title']==track_id].index[0]
+    idx = df[df['track_title'].str.lower()==track_id.lower()].index[0]
     # get the cosine similarity scores of the track with all other tracks
     sim_scores = list(enumerate(cosine_sim[idx]))
     # sort the tracks based on the similarity score
